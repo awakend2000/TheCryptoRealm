@@ -37,3 +37,4 @@ Requires Node.js 20.3+ (Node 22 recommended). Run `npm install`, `npm run dev`, 
 - **Article not showing:** Ensure Draft is off and the date/description/title are filled in; check latest successful deployment.
 
 This package is intended for a clean repository. Do not mix it with the older `crypto-realm-starter` or `astro-blog` repositories.
+Cloudflare deployment test
