@@ -1,0 +1,39 @@
+# The Crypto Realm — complete website (Astro 5)
+
+A black-and-gold responsive website with a working Markdown article collection, article pages, and Pages CMS configuration.
+
+## IMPORTANT: New GitHub repository setup
+
+1. Create a **new empty** GitHub repository, e.g. `the-crypto-realm-v2` (public is easiest for free Pages CMS use).
+2. **Upload the CONTENTS of this ZIP directly into the repository root.** Do not upload the ZIP itself. Do not nest the files in another folder. At the top level of GitHub you should see `.pages.yml`, `package.json`, `astro.config.mjs`, `src/`, `public/`.
+3. Cloudflare Dashboard → Workers & Pages → Create application → **Continue to Pages** → Connect to Git → choose this **new repository**. Select `main`.
+4. Build settings: Framework preset `Astro`, build command `npm run build`, build output directory `dist`, root directory **empty / repository root**. Save and deploy. Verify the site and example Welcome article appear.
+5. At https://pagescms.org sign in with GitHub, select the **new repository**, and open **Articles**. `.pages.yml` is at the root so Pages CMS can discover it.
+6. Add Entry → enter title, description, date, author, body. Leave Draft **off** to publish. Save. Pages CMS commits a Markdown file to `src/content/articles` on `main`. Cloudflare should automatically trigger a new deployment; check Deployments for success. Then see the new article on `/articles/` and the homepage (newest 3).
+
+## How article publishing works
+
+- `src/content.config.ts` loads all Markdown files in `src/content/articles` using Astro 5's content loader.
+- `src/pages/index.astro` shows the newest three **non-draft** articles.
+- `src/pages/articles/index.astro` lists all **non-draft** articles.
+- `src/pages/articles/[...slug].astro` generates each published article page.
+- The CMS is **not** a separate repository: it must be opened on the exact GitHub repo Cloudflare deploys from.
+- Filename is used for the URL slug. Example: `bitcoin-basics.md` → `/articles/bitcoin-basics/`.
+- Images can be uploaded to `public/images`; article Markdown can reference `/images/filename.jpg`.
+
+## Other sections
+
+The Videos and Merchandise areas are attractive placeholders. Replace them with your real YouTube/Rumble and store links when ready. The gold Bitcoin hero artwork is generated with CSS, so it needs no paid image license.
+
+## Local development
+
+Requires Node.js 20.3+ (Node 22 recommended). Run `npm install`, `npm run dev`, then `npm run build` to check production output.
+
+## Troubleshooting
+
+- **Pages CMS config error:** Verify `.pages.yml` is in the repository root on `main`, and `src/content/articles` exists in that same repository.
+- **CMS saves but website unchanged:** Check Pages CMS is connected to the *same* repository and branch as Cloudflare. Check Cloudflare Deployments; saving to GitHub does not by itself mean Cloudflare deployed.
+- **Build failure:** Read the first error in Cloudflare build logs. Use root directory blank, build command `npm run build`, output `dist`.
+- **Article not showing:** Ensure Draft is off and the date/description/title are filled in; check latest successful deployment.
+
+This package is intended for a clean repository. Do not mix it with the older `crypto-realm-starter` or `astro-blog` repositories.
