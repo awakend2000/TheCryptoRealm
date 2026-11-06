@@ -1,3 +1,56 @@
+
+media: public/images
+content:
+  - name: articles
+    label: Articles
+    type: collection
+    path: src/content/articles
+    view:
+      fields: [title, date, draft]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: date
+        label: Publication date
+        type: date
+        required: true
+      - name: author
+        label: Author
+        type: string
+      - name: draft
+        label: Draft (hide from website)
+        type: boolean
+        default: false
+      - name: body
+        label: Article body
+        type: rich-text
+
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  output: 'static',
+});
+
+{
+  "name": "the-crypto-realm",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.14.0"
+  }
+}
+
 # The Crypto Realm — complete website (Astro 5)
 
 A black-and-gold responsive website with a working Markdown article collection, article pages, and Pages CMS configuration.
@@ -37,4 +90,3 @@ Requires Node.js 20.3+ (Node 22 recommended). Run `npm install`, `npm run dev`, 
 - **Article not showing:** Ensure Draft is off and the date/description/title are filled in; check latest successful deployment.
 
 This package is intended for a clean repository. Do not mix it with the older `crypto-realm-starter` or `astro-blog` repositories.
-Cloudflare deployment test
