@@ -2,6 +2,7 @@
 title: "Bitcoin Slides to $76,000 as the AI Trade Cracks"
 description: "Wall Street's worst day since April 2025 dragged bitcoin and crypto lower. Here's what happened, why analysts say it happened, and what it shows about leverage."
 date: 2026-11-06
+---
 Stocks had a brutal Thursday, and crypto went down with them. Bitcoin slipped about 5% to just under $76,000 as a sell-off in AI-linked stocks swept through the markets, wiping out the bounce that followed the U.S. midterm elections.
 What happened
 On Thursday, Nov. 5, U.S. stocks had their worst session since April 2025:
@@ -32,4 +33,3 @@ CoinDesk: Bitcoin tumbles to $76,000 as collapsing AI trade drags stocks sharply
 investingLive: Nasdaq 100 suffers worst day since 2020
 Markets.com: Nasdaq falls 5.52% as AI sell-off drives S&P 500's worst day since April 2025
 CoinGlass liquidation data (as cited by CoinDesk)
----
