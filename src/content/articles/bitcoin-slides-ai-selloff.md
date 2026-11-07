@@ -32,3 +32,4 @@ CoinDesk: Bitcoin tumbles to $76,000 as collapsing AI trade drags stocks sharply
 investingLive: Nasdaq 100 suffers worst day since 2020
 Markets.com: Nasdaq falls 5.52% as AI sell-off drives S&P 500's worst day since April 2025
 CoinGlass liquidation data (as cited by CoinDesk)
+---
