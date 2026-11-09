@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
-const articles = (await getCollection('articles', ({ data }) => !data.draft)).sort((a,b)=>b.data.date.valueOf()-a.data.date.valueOf());
+const articles = (await getCollection('articles')).sort((a,b)=>b.data.date.valueOf()-a.data.date.valueOf()).slice(0,3);
 ---
-<Base title="Articles | The Crypto Realm"><section class="container page-title"><div class="eyebrow">THE REALM REPORT</div><h1>Articles & Analysis</h1><p class="subtle">Independent perspectives from The Crypto Realm.</p></section><section class="container section"><div class="article-grid">{articles.map(a=><a href={`/articles/${a.id}/`} class="card article-item"><div class="date">{a.data.date.toLocaleDateString('en-US',{dateStyle:'medium'})}</div><h3>{a.data.title}</h3><p>{a.data.description}</p><span class="textlink">READ ARTICLE ↗</span></a>)}{articles.length === 0 && <p class="subtle">No published articles yet. Check back soon.</p>}</div></section></Base>
+<Base title="Articles | The Crypto Realm"><section class="container page-title"><div class="eyebrow">THE REALM REPORT</div><h1>Articles & Analysis</h1><p class="subtle">Independent perspectives from The Crypto Realm.</p></section><section class="container section"><div class="article-grid">{articles.map(a=><a href={`/articles/${a.id}/`} class="card article-item"><div class="date">{a.data.date.toLocaleDateString('en-US',{dateStyle:'medium'})}</div><h3>{a.data.title}</h3><p>{a.data.description}</p><span class="textlink">READ ARTICLE ↗</span></a>)}</div></section></Base>
