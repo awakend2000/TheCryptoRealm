@@ -5,9 +5,9 @@ import type { APIRoute } from 'astro';
 const SITE = 'https://thecryptorealm.pages.dev';
 
 export const GET: APIRoute = async () => {
-  const articles = await getCollection('articles', ({ data }) => !data.draft);
+  const articles = await getCollection('articles');
 
-  const pages = ['/', '/about/', '/trade/', '/nfts/', '/disclaimer/', '/articles/'];
+  const pages = ['/', '/about/', '/trade/', '/nfts/', '/disclaimer/', '/privacy/', '/articles/'];
 
   const pageUrls = pages.map((path) => `  <url><loc>${SITE}${path}</loc></url>`);
 
