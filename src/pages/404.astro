@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const latest = (await getCollection('articles'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+<Base title="Page not found | The Crypto Realm" description="That page can’t be found.">
+  <section class="container page-title">
+    <div class="eyebrow">ERROR 404</div>
+    <h1>That page can’t be found</h1>
+    <p class="subtle">The link may be old, or the address may have a typo. Here are some good places to go instead.</p>
+    <p class="nf-actions">
+      <a class="btn btn-primary" href="/">GO TO THE HOMEPAGE</a>
+      <a class="btn btn-outline" href="/articles/">READ ARTICLES</a>
+      <a class="btn btn-outline" href="/#videos">WATCH VIDEOS</a>
+    </p>
+  </section>
+  {latest.length > 0 && (
+    <section class="container section">
+      <div class="section-head"><div><div class="eyebrow">LATEST</div><h2>Newest articles</h2></div></div>
+      <ul class="nf-list">
+        {latest.map((a) => (
+          <li><a href={`/articles/${a.id}/`}>{a.data.title}</a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>
+
+<style>
+  .nf-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .nf-list{list-style:none;padding:0;margin:0}
+  .nf-list li{padding:16px 0;border-bottom:1px solid #27354b;font-size:19px}
+  .nf-list a{color:#f5b638}
+  .nf-list a:hover{text-decoration:underline}
+</style>
